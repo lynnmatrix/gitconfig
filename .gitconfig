@@ -1,17 +1,29 @@
 [user]
-    name = Lin Yiming
-    email = roymatrix.lin@gmail.com
+	name = Lin Yiming
+	email = linym@rd.netease.com
+
 [color]
     diff = auto
     status = auto
     branch = auto
     log = auto
     ui = auto
+    
+[reviewboard]
+    url = http://rb.corp.youdao.com/
+        
+[core]
+	excludesfile = /Users/mac/.gitignore
+
 [alias]
-    co = checkout
-    ci = commit   
-    st = status  
-    br = branch  
-    df = diff
-    oneline = log --pretty=oneline --since='2 days ago'  
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+	df = diff
+	lg = log -p
+	who = shortlog -s --
+	svn-diff = !git-svn-diff
+	post-review = !git-post-review
+    oneline = log --pretty=oneline --since='2 days ago'⋅⋅
     onelog = log -p -1
