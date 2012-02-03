@@ -1,0 +1,17 @@
+[user]
+    name = Lin Yiming
+    email = roymatrix.lin@gmail.com
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    log = auto
+    ui = auto
+[alias]
+    co = checkout
+    ci = commit   
+    st = status  
+    br = branch  
+    df = diff
+    oneline = log --pretty=oneline --since='2 days ago'  
+    onelog = log -p -1
