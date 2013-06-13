@@ -1,6 +1,6 @@
 [user]
 	name = Lin Yiming
-	email = linym@rd.netease.com
+	email = linym@jadenine.com
 
 [color]
     diff = auto
@@ -10,10 +10,12 @@
     ui = auto
     
 [reviewboard]
-    url = http://rb.corp.youdao.com/
         
 [core]
 	excludesfile = /Users/mac/.gitignore
+
+[i18n]
+	commitencoding = gbk
 
 [alias]
 	st = status
