@@ -12,10 +12,13 @@
 [reviewboard]
         
 [core]
-	excludesfile = /Users/mac/.gitignore
+	excludesfile = /Users/roy/.gitignore
+	editor = /usr/bin/vim
+	quotepath = false
+	autocrlf = input
 
 [i18n]
-	commitencoding = gbk
+	commitencoding = gb2312
 
 [alias]
 	st = status
@@ -23,9 +26,44 @@
 	br = branch
 	co = checkout
 	df = diff
-	lg = log -p
+    lgdiff = log -p --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)'
 	who = shortlog -s --
 	svn-diff = !git-svn-diff
 	post-review = !git-post-review
     oneline = log --pretty=oneline --since='2 days ago'⋅⋅
     onelog = log -p -1
+    lg = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white) %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+    lg1 = log --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white) %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+    lg2 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n'' %C(white)%s%C(reset) %C(bold white) %an%C(reset)' --abbrev-commit 
+
+[push]
+	default = current
+[branch]
+	autosetuprebase = always
+
+[mergetool]
+    prompt = false
+	keepBackup = false
+#[mergetool "mvimdiff"]
+#    cmd="mvim -c 'Gdiff' $MERGED"     # use fugitive.vim for 3-way merge
+#    keepbackup=false
+[merge]
+    summary = true
+    verbosity = 1
+	tool = FileMerge #vimdiff #fugitive
+[apply]
+    whitespace = nowarn
+    
+[diff]
+      # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
+      # instead of a/b/c/d as prefixes for patches
+    mnemonicprefix = true
+[mergetool "fugitive"]
+	cmd = mvim -f -c \"Gdiff\" \"$MERGED\"
+    keepbackup=false
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
