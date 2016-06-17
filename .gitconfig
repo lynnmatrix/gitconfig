@@ -1,6 +1,6 @@
 [user]
-	name = Lin Yiming
-	email = linym@jadenine.com
+    name = Lin Yiming
+    email = linyiming@chunyu.me 
 
 [color]
     diff = auto
@@ -12,45 +12,40 @@
 [reviewboard]
         
 [core]
-	excludesfile = /Users/roy/.gitignore
-	editor = /usr/bin/vim
-	quotepath = false
-	autocrlf = input
+    excludesfile = /Users/linym/.gitignore
+    editor = /usr/bin/vim
+    quotepath = false
+    autocrlf = input
 
 [i18n]
-	commitencoding = gb2312
+    commitencoding = gb2312
 
 [alias]
-	st = status
-	ci = commit
-	br = branch
-	co = checkout
-	df = diff
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff
     lgdiff = log -p --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)'
 	who = shortlog -s --
 	svn-diff = !git-svn-diff
 	post-review = !git-post-review
     oneline = log --pretty=oneline --since='2 days ago'⋅⋅
     onelog = log -p -1
-    lg = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white) %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
-    lg1 = log --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white) %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
-    lg2 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n'' %C(white)%s%C(reset) %C(bold white) %an%C(reset)' --abbrev-commit 
-
+    lg = log --graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white) %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+    lga = log -all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white) %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+    lgg = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n'' %C(white)%s%C(reset) %C(bold white) %an%C(reset)' --abbrev-commit 
 [push]
 	default = current
-[branch]
-	autosetuprebase = always
-
+[pull]
+	rebase = true
 [mergetool]
     prompt = false
 	keepBackup = false
-#[mergetool "mvimdiff"]
-#    cmd="mvim -c 'Gdiff' $MERGED"     # use fugitive.vim for 3-way merge
-#    keepbackup=false
 [merge]
     summary = true
     verbosity = 1
-	tool = FileMerge #vimdiff #fugitive
+    tool = FileMerge #vimdiff #fugitive
 [apply]
     whitespace = nowarn
     
@@ -59,11 +54,5 @@
       # instead of a/b/c/d as prefixes for patches
     mnemonicprefix = true
 [mergetool "fugitive"]
-	cmd = mvim -f -c \"Gdiff\" \"$MERGED\"
+    cmd = mvim -f -c \"Gdiff\" \"$MERGED\"
     keepbackup=false
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
