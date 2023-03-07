@@ -1,6 +1,6 @@
 [user]
     name = Lin Yiming
-    email = linyiming@chunyu.me 
+  	email = roymatrix.lin@gmail.com 
 
 [color]
     diff = auto
@@ -16,9 +16,10 @@
     editor = /usr/bin/vim
     quotepath = false
     autocrlf = input
-
+[gui]  
+  encoding = utf-8
 [i18n]
-    commitencoding = gb2312
+    commitencoding = utf-8 #gb2312
 
 [alias]
     st = status
@@ -56,3 +57,8 @@
 [mergetool "fugitive"]
     cmd = mvim -f -c \"Gdiff\" \"$MERGED\"
     keepbackup=false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
